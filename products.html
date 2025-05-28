@@ -17,6 +17,7 @@
       font-family: 'Cairo', sans-serif;
       background: #f5f7fa;
       color: #222;
+      transition: all 0.3s ease;
     }
 
     a {
@@ -44,6 +45,11 @@
       font-weight: 700;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
       margin-left: 25px;
       font-weight: 600;
@@ -54,9 +60,31 @@
       color: #ffd500;
     }
 
+    #lang-toggle {
+      margin-left: 25px;
+      cursor: pointer;
+      background: #ffd500;
+      color: #0b3d91;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #lang-toggle:hover {
+      background: #0b3d91;
+      color: #ffd500;
+    }
+
     main {
       padding-top: 100px;
       padding-bottom: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     h1 {
@@ -78,13 +106,10 @@
     }
 
     .product-list {
-      max-width: 1000px;
-      margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       gap: 25px;
       justify-content: center;
-      padding: 0 20px;
     }
 
     .product-card {
@@ -148,6 +173,26 @@
       margin-top: 60px;
     }
 
+    /* English mode overrides */
+    body.en {
+      direction: ltr;
+      font-family: 'Arial', sans-serif;
+    }
+    body.en header nav a {
+      margin-left: 0;
+      margin-right: 25px;
+    }
+    body.en header nav {
+      flex-direction: row;
+    }
+    body.en .product-card {
+      cursor: default;
+    }
+    body.en #lang-toggle {
+      margin-left: 0;
+      margin-right: 25px;
+    }
+
     @media (max-width: 768px) {
       h1 {
         font-size: 2rem;
@@ -158,58 +203,159 @@
         gap: 20px;
       }
     }
+
+    /* Hide the language not active */
+    .lang-content {
+      display: none;
+    }
+    .lang-content.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">الأفق الصافي</div>
+  <div class="logo lang-content active" data-lang="ar">الأفق الصافي</div>
+  <div class="logo lang-content" data-lang="en" style="display:none;">Al Ofoq Al Safi</div>
   <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="index.html#about">من نحن</a>
-    <a href="products.html">المنتجات</a>
-    <a href="index.html#contact">اتصل بنا</a>
+    <!-- Arabic nav -->
+    <div class="lang-content active" data-lang="ar">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#about">من نحن</a>
+      <a href="products.html">المنتجات</a>
+      <a href="index.html#contact">اتصل بنا</a>
+    </div>
+    <!-- English nav -->
+    <div class="lang-content" data-lang="en" style="display:none;">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+
+    <button id="lang-toggle">English</button>
   </nav>
 </header>
 
 <main>
-  <h1>منتجاتنا</h1>
-  <div class="product-list">
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1581090700227-d942736a05a6?auto=format&fit=crop&w=400&q=80" alt="خوذة سلامة">
-      <h3>خوذة سلامة</h3>
-      <p>خوذة عالية الجودة للحماية من الإصابات في مواقع العمل.</p>
+  <!-- Arabic content -->
+  <section class="lang-content active" data-lang="ar">
+    <h1>منتجاتنا</h1>
+    <div class="product-list">
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1581090700227-d942736a05a6?auto=format&fit=crop&w=400&q=80" alt="خوذة سلامة" />
+        <h3>خوذة سلامة</h3>
+        <p>خوذة عالية الجودة للحماية من الإصابات في مواقع العمل.</p>
+      </div>
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1564151399119-bf6eaf64baf6?auto=format&fit=crop&w=400&q=80" alt="قفازات واقية" />
+        <h3>قفازات واقية</h3>
+        <p>قفازات متينة توفر الحماية لليدين ضد المواد الكيميائية والخدوش.</p>
+      </div>
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=400&q=80" alt="طوق إنقاذ" />
+        <h3>طوق إنقاذ</h3>
+        <p>معدات إنقاذ للحفاظ على السلامة في حالات الطوارئ.</p>
+      </div>
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1580910051070-c62b7f3dc68e?auto=format&fit=crop&w=400&q=80" alt="سترة عاكسة" />
+        <h3>سترة عاكسة</h3>
+        <p>سترة مرئية جداً لعمال الطرق والمواقع الصناعية.</p>
+      </div>
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1606824298779-9fa3d0ec8e9c?auto=format&fit=crop&w=400&q=80" alt="نظارات واقية" />
+        <h3>نظارات واقية</h3>
+        <p>نظارات للحماية من الغبار والمواد الكيميائية.</p>
+      </div>
     </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1564151399119-bf6eaf64baf6?auto=format&fit=crop&w=400&q=80" alt="قفازات واقية">
-      <h3>قفازات واقية</h3>
-      <p>قفازات متينة توفر الحماية لليدين ضد المواد الكيميائية والخدوش.</p>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=400&q=80" alt="طوق إنقاذ">
-      <h3>طوق إنقاذ</h3>
-      <p>معدات إنقاذ للحفاظ على السلامة في حالات الطوارئ.</p>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1580910051070-c62b7f3dc68e?auto=format&fit=crop&w=400&q=80" alt="سترة عاكسة">
-      <h3>سترة عاكسة</h3>
-      <p>سترة مرئية جداً لعمال الطرق والمواقع الصناعية.</p>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1606824298779-9fa3d0ec8e9c?auto=format&fit=crop&w=400&q=80" alt="نظارات واقية">
-      <h3>نظارات واقية</h3>
-      <p>نظارات للحماية من الغبار والمواد الكيميائية.</p>
-    </div>
-  </div>
 
-  <div class="back-btn">
-    <a href="index.html">العودة إلى الرئيسية</a>
-  </div>
+    <div class="back-btn">
+      <a href="index.html">العودة إلى الرئيسية</a>
+    </div>
+  </section>
+
+  <!-- English content -->
+  <section class="lang-content" data-lang="en" style="display:none;">
+    <h1>Our Products</h1>
+    <div class="product-list">
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1581090700227-d942736a05a6?auto=format&fit=crop&w=400&q=80" alt="Safety Helmet" />
+        <h3>Safety Helmet</h3>
+        <p>High-quality helmet to protect against injuries at work sites.</p>
+      </div>
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1564151399119-bf6eaf64baf6?auto=format&fit=crop&w=400&q=80" alt="Protective Gloves" />
+        <h3>Protective Gloves</h3>
+        <p>Durable gloves providing protection against chemicals and scratches.</p>
+      </div>
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=400&q=80" alt="Rescue Ring" />
+        <h3>Rescue Ring</h3>
+        <p>Rescue equipment to ensure safety in emergencies.</p>
+      </div>
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1580910051070-c62b7f3dc68e?auto=format&fit=crop&w=400&q=80" alt="Reflective Vest" />
+        <h3>Reflective Vest</h3>
+        <p>Highly visible vest for road and industrial workers.</p>
+      </div>
+      <div class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1606824298779-9fa3d0ec8e9c?auto=format&fit=crop&w=400&q=80" alt="Protective Glasses" />
+        <h3>Protective Glasses</h3>
+        <p>Glasses protecting against dust and chemicals.</p>
+      </div>
+    </div>
+
+    <div class="back-btn">
+      <a href="index.html">Back to Home</a>
+    </div>
+  </section>
 </main>
 
 <footer>
-  جميع الحقوق محفوظة © 2025 شركة الأفق الصافي
+  <div class="lang-content active" data-lang="ar">جميع الحقوق محفوظة © 2025 شركة الأفق الصافي</div>
+  <div class="lang-content" data-lang="en" style="display:none;">© 2025 Al Ofoq Al Safi Company. All rights reserved.</div>
 </footer>
+
+<script>
+  const langToggle = document.getElementById('lang-toggle');
+  const langContents = document.querySelectorAll('.lang-content');
+
+  langToggle.addEventListener('click', () => {
+    const isArabic = document.body.classList.contains('en') === false;
+    if(isArabic){
+      // Switch to English
+      document.body.classList.add('en');
+      langToggle.textContent = 'العربية';
+      langContents.forEach(el => {
+        if(el.dataset.lang === 'en'){
+          el.style.display = 'block';
+          el.classList.add('active');
+        } else {
+          el.style.display = 'none';
+          el.classList.remove('active');
+        }
+      });
+      document.documentElement.lang = 'en';
+      document.documentElement.dir = 'ltr';
+    } else {
+      // Switch to Arabic
+      document.body.classList.remove('en');
+      langToggle.textContent = 'English';
+      langContents.forEach(el => {
+        if(el.dataset.lang === 'ar'){
+          el.style.display = 'block';
+          el.classList.add('active');
+        } else {
+          el.style.display = 'none';
+          el.classList.remove('active');
+        }
+      });
+      document.documentElement.lang = 'ar';
+      document.documentElement.dir = 'rtl';
+    }
+  });
+</script>
 
 </body>
 </html>
