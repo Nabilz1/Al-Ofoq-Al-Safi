@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>الأفق الصافي - أدوات ومواد السلامة</title>
+<style>
+  /* الخطوط والألوان */
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background: #f5f7fa;
+    color: #222;
+    overflow-x: hidden;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* الهيدر */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #0b3d91;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  }
+
+  header .logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  nav a {
+    margin-left: 25px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #ffd500;
+  }
+
+  /* بانر رئيسي */
+  .banner {
+    height: 90vh;
+    background: linear-gradient(135deg, #0b3d91cc, #ffd500cc), url('https://images.unsplash.com/photo-1526403227747-95f9ef7a1e2d?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    color: white;
+    animation: bannerFadeIn 2s ease forwards;
+    margin-top: 60px; /* لترك مكان الهيدر */
+  }
+
+  @keyframes bannerFadeIn {
+    0% {opacity: 0; transform: translateY(30px);}
+    100% {opacity: 1; transform: translateY(0);}
+  }
+
+  .banner h1 {
+    font-size: 3.5rem;
+    margin: 0 0 10px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  }
+
+  .banner p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  }
+
+  /* قسم عن الشركة */
+  .about {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .about h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #0b3d91;
+    position: relative;
+  }
+
+  .about h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #ffd500;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  .about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #444;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: aboutFadeIn 1.5s forwards 0.5s;
+  }
+
+  @keyframes aboutFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* قسم المنتجات */
+  .products {
+    background: #fff;
+    padding: 50px 20px;
+  }
+
+  .products h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #0b3d91;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .products h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #ffd500;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  .product-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .product-card {
+    background: #e9eff7;
+    flex: 1 1 280px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(11, 61, 145, 0.2);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(11, 61, 145, 0.4);
+  }
+
+  .product-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+
+  .product-card h3 {
+    margin: 10px 0;
+    color: #0b3d91;
+  }
+
+  .product-card p {
+    color: #555;
+    font-size: 1rem;
+  }
+
+  /* الفوتر */
+  footer {
+    background: #0b3d91;
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .banner h1 {
+      font-size: 2.5rem;
+    }
+
+    .banner p {
+      font-size: 1.1rem;
+    }
+
+    .product-list {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">الأفق الصافي</div>
+  <nav>
+    <a href="#">الرئيسية</a>
+    <a href="#about">من نحن</a>
+    <a href="#products">المنتجات</a>
+    <a href="#contact">اتصل بنا</a>
+  </nav>
+</header>
+
+<section class="banner">
+  <div>
+    <h1>أدوات ومواد السلامة التي تثق بها</h1>
+    <p>نوفر أفضل المعدات لضمان سلامتك في مكان العمل والمنزل</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2>من نحن</h2>
+  <p>
+    شركة الأفق الصافي متخصصة في توفير أدوات ومواد السلامة ذات الجودة العالية لجميع القطاعات الصناعية والمنزلية، 
+    ملتزمون بتقديم أفضل المنتجات التي تحميك وتحمي بيئتك.
+  </p>
+</section>
+
+<section class="products" id="products">
+  <h2>منتجاتنا</h2>
+  <div class="product-list">
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1581090700227-d942736a05a6?auto=format&fit=crop&w=400&q=80" alt="خوذة سلامة">
+      <h3>خوذة سلامة</h3>
+      <p>خوذة عالية الجودة للحماية من الإصابات في مواقع العمل.</p>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1564151399119-bf6eaf64baf6?auto=format&fit=crop&w=400&q=80" alt="قفازات واقية">
+      <h3>قفازات واقية</h3>
+      <p>قفازات متينة توفر الحماية لليدين ضد المواد الكيميائية والخدوش.</p>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=400&q=80" alt="طوق إنقاذ">
+      <h3>طوق إنقاذ</h3>
+      <p>معدات إنقاذ للحفاظ على السلامة في حالات الطوارئ.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="max-width: 600px; margin: 60px auto; padding: 0 20px;">
+  <h2 style="text-align:center; color:#0b3d91; margin-bottom: 20px;">اتصل بنا</h2>
+  <form style="display:flex; flex-direction: column; gap: 15px;">
+    <input type="text" placeholder="الاسم الكامل" required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+    <input type="email" placeholder="البريد الإلكتروني" required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+    <textarea placeholder="رسالتك" rows="5" required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;"></textarea>
+    <button type="submit" style="background:#0b3d91; color:white; padding: 14px; border:none; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: background 0.3s ease;">
+      إرسال
+    </button>
+  </form>
+</section>
+
+<footer>
+  جميع الحقوق محفوظة © 2025 شركة الأفق الصافي
+</footer>
+
+</body>
+</html>
