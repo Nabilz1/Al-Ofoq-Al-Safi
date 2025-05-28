@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>منتجاتنا - الأفق الصافي</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #f5f7fa;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #0b3d91;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    nav a {
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffd500;
+    }
+
+    main {
+      padding-top: 100px;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      color: #0b3d91;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    h1::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #ffd500;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .product-list {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      background: #e9eff7;
+      flex: 1 1 280px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(11, 61, 145, 0.2);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(11, 61, 145, 0.4);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      color: #0b3d91;
+      margin: 10px 0;
+    }
+
+    .product-card p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-btn a {
+      background: #0b3d91;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn a:hover {
+      background: #ffd500;
+      color: #0b3d91;
+    }
+
+    footer {
+      background: #0b3d91;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .product-list {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">الأفق الصافي</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="index.html#about">من نحن</a>
+    <a href="products.html">المنتجات</a>
+    <a href="index.html#contact">اتصل بنا</a>
+  </nav>
+</header>
+
+<main>
+  <h1>منتجاتنا</h1>
+  <div class="product-list">
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1581090700227-d942736a05a6?auto=format&fit=crop&w=400&q=80" alt="خوذة سلامة">
+      <h3>خوذة سلامة</h3>
+      <p>خوذة عالية الجودة للحماية من الإصابات في مواقع العمل.</p>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1564151399119-bf6eaf64baf6?auto=format&fit=crop&w=400&q=80" alt="قفازات واقية">
+      <h3>قفازات واقية</h3>
+      <p>قفازات متينة توفر الحماية لليدين ضد المواد الكيميائية والخدوش.</p>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=400&q=80" alt="طوق إنقاذ">
+      <h3>طوق إنقاذ</h3>
+      <p>معدات إنقاذ للحفاظ على السلامة في حالات الطوارئ.</p>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1580910051070-c62b7f3dc68e?auto=format&fit=crop&w=400&q=80" alt="سترة عاكسة">
+      <h3>سترة عاكسة</h3>
+      <p>سترة مرئية جداً لعمال الطرق والمواقع الصناعية.</p>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1606824298779-9fa3d0ec8e9c?auto=format&fit=crop&w=400&q=80" alt="نظارات واقية">
+      <h3>نظارات واقية</h3>
+      <p>نظارات للحماية من الغبار والمواد الكيميائية.</p>
+    </div>
+  </div>
+
+  <div class="back-btn">
+    <a href="index.html">العودة إلى الرئيسية</a>
+  </div>
+</main>
+
+<footer>
+  جميع الحقوق محفوظة © 2025 شركة الأفق الصافي
+</footer>
+
+</body>
+</html>
